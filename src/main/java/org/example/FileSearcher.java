@@ -1,3 +1,5 @@
+package org.example;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -9,18 +11,15 @@ public class FileSearcher {
         List<File> csvFiles = new ArrayList<>();
 
         File directory = new File(directoryPath);
-        if (!directory.isDirectory()) {
-            throw new IOException("Path is not a directory");
-        }
 
         searchFilesRecursively(directory, jsonFiles, csvFiles);
 
-        System.out.println("Found JSON files:");
+        System.out.println("Found JSON files: " + jsonFiles.size());
         for (File file : jsonFiles) {
             System.out.println(file.getName());
         }
 
-        System.out.println("Found CSV files:");
+        System.out.println("Found CSV files: " + csvFiles.size());
         for (File file : csvFiles) {
             System.out.println(file.getName());
         }
